@@ -13,6 +13,7 @@ namespace Note
             Opacity = 0.5;
             Size = new Point(200, 100);
             Location = new Point(200, 200);
+            TopMost = false;
         }
 
         public int NoteId { get; set; }
@@ -20,6 +21,7 @@ namespace Note
         public double Opacity { get; set; }
         public Point Size { get; set; }
         public Point Location { get; set; }
+        public bool TopMost { get; set; }
     }
 
     public class Point

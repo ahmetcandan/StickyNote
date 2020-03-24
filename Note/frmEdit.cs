@@ -13,14 +13,19 @@ namespace Note
     public partial class frmEdit : Form
     {
         Note Note;
+        Point _location = null;
+        Point _size = null;
 
-        public frmEdit(int noteId = 0)
+        public frmEdit(int noteId = 0, Point location = null, Point size = null)
         {
             InitializeComponent();
             if (noteId == 0)
                 Note = new Note();
             else
                 Note = DataAccess.Data.Notes.FirstOrDefault(c => c.NoteId == noteId);
+
+            _location = location;
+            _size = size;
         }
 
         private void frmEdit_Load(object sender, EventArgs e)
@@ -29,6 +34,13 @@ namespace Note
             txtHeight.Text = Note.Size.Y.ToString();
             txtOpacity.Text = (Note.Opacity * 100).ToString();
             txtWidth.Text = Note.Size.X.ToString();
+
+
+            if (_location != null)
+                Location = new System.Drawing.Point(_location.X - 7, _location.Y);
+
+            if (_size != null)
+                Size = new Size(_size.X + 13, _size.Y);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

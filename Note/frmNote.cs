@@ -24,9 +24,11 @@ namespace Note
 
         private void lblNote_DoubleClick(object sender, EventArgs e)
         {
-            frmEdit frm = new frmEdit(Note.NoteId);
+            TopMost = false;
+            frmEdit frm = new frmEdit(Note.NoteId, Note.Location, Note.Size);
             frm.ShowDialog();
             load();
+            TopMost = Note.TopMost;
         }
 
         bool mouseClick = false;
@@ -105,6 +107,8 @@ namespace Note
             Location = new System.Drawing.Point(Note.Location.X <= screenSize.Width ? Note.Location.X : screenSize.Width - Note.Size.X, Note.Location.Y <= screenSize.Height ? Note.Location.Y : screenSize.Height - Note.Size.Y);
 
             Size = new Size(Note.Size.X, Note.Size.Y);
+            TopMost = Note.TopMost;
+            topMostToolStripMenuItem.Checked = TopMost;
         }
 
         private const int cGrip = 16;      // Grip size
@@ -147,6 +151,14 @@ namespace Note
         private void frmNote_FormClosing(object sender, FormClosingEventArgs e)
         {
             Forms.NoteForms.Remove(this);
+        }
+
+        private void topMostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Note.TopMost = !Note.TopMost;
+            TopMost = Note.TopMost;
+            topMostToolStripMenuItem.Checked = Note.TopMost;
+            DataAccess.Data.Save();
         }
     }
 }

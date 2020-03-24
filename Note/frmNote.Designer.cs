@@ -34,6 +34,7 @@
             this.yeniNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,32 +63,40 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.yeniNoteToolStripMenuItem,
+            this.topMostToolStripMenuItem,
             this.kapatToolStripMenuItem,
             this.çıkışToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             // 
             // yeniNoteToolStripMenuItem
             // 
             this.yeniNoteToolStripMenuItem.Name = "yeniNoteToolStripMenuItem";
             this.yeniNoteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.yeniNoteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.yeniNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.yeniNoteToolStripMenuItem.Text = "Yeni Note";
             this.yeniNoteToolStripMenuItem.Click += new System.EventHandler(this.yeniNoteToolStripMenuItem_Click);
             // 
             // kapatToolStripMenuItem
             // 
             this.kapatToolStripMenuItem.Name = "kapatToolStripMenuItem";
-            this.kapatToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.kapatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kapatToolStripMenuItem.Text = "Kapat";
             this.kapatToolStripMenuItem.Click += new System.EventHandler(this.kapatToolStripMenuItem_Click);
             // 
             // çıkışToolStripMenuItem
             // 
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
-            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.çıkışToolStripMenuItem.Text = "Çıkış";
             this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
+            // 
+            // topMostToolStripMenuItem
+            // 
+            this.topMostToolStripMenuItem.Name = "topMostToolStripMenuItem";
+            this.topMostToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.topMostToolStripMenuItem.Text = "Top Most";
+            this.topMostToolStripMenuItem.Click += new System.EventHandler(this.topMostToolStripMenuItem_Click);
             // 
             // frmNote
             // 
@@ -99,7 +108,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNote";
             this.Opacity = 0.5D;
             this.ShowIcon = false;
@@ -120,6 +129,7 @@
         private System.Windows.Forms.ToolStripMenuItem yeniNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kapatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topMostToolStripMenuItem;
     }
 }
 

@@ -40,7 +40,7 @@ namespace Note
                     if (Notes == null || Notes.Count == 0)
                         sw.Write("[]");
                     else
-                        sw.Write(JsonConvert.SerializeObject(from a in Notes select new { a.Description, a.NoteId, a.Opacity, a.Size, a.Location }));
+                        sw.Write(JsonConvert.SerializeObject(from a in Notes select new { a.Description, a.NoteId, a.Opacity, a.Size, a.Location, a.TopMost }));
                 }
             }
             catch (Exception ex)
