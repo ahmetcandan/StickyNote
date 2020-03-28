@@ -104,7 +104,8 @@ namespace Note
             SetStyle(ControlStyles.ResizeRedraw, true);
 
             var screenSize = Screen.PrimaryScreen.Bounds.Size;
-            Location = new System.Drawing.Point(Note.Location.X <= screenSize.Width ? Note.Location.X : screenSize.Width - Note.Size.X, Note.Location.Y <= screenSize.Height ? Note.Location.Y : screenSize.Height - Note.Size.Y);
+            bool isMultiScreen = Screen.AllScreens.Length > 1;
+            Location = new System.Drawing.Point((!isMultiScreen && Note.Location.X >= 0 && Note.Location.X <= screenSize.Width) ? Note.Location.X : screenSize.Width - Note.Size.X, (!isMultiScreen && Note.Location.Y >= 0 && Note.Location.Y <= screenSize.Height) ? Note.Location.Y : screenSize.Height - Note.Size.Y);
 
             Size = new Size(Note.Size.X, Note.Size.Y);
             TopMost = Note.TopMost;
