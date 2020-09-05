@@ -105,7 +105,7 @@ namespace Note
 
             var screenSize = Screen.PrimaryScreen.Bounds.Size;
             bool isMultiScreen = Screen.AllScreens.Length > 1;
-            Location = new System.Drawing.Point((!isMultiScreen && Note.Location.X >= 0 && Note.Location.X <= screenSize.Width) ? Note.Location.X : screenSize.Width - Note.Size.X, (!isMultiScreen && Note.Location.Y >= 0 && Note.Location.Y <= screenSize.Height) ? Note.Location.Y : screenSize.Height - Note.Size.Y);
+            Location = new System.Drawing.Point((isMultiScreen || (Note.Location.X >= 0 && Note.Location.X <= screenSize.Width)) ? Note.Location.X : screenSize.Width - Note.Size.X, (isMultiScreen || (Note.Location.Y >= 0 && Note.Location.Y <= screenSize.Height)) ? Note.Location.Y : screenSize.Height - Note.Size.Y);
 
             Size = new Size(Note.Size.X, Note.Size.Y);
             TopMost = Note.TopMost;
@@ -117,7 +117,7 @@ namespace Note
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
+            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, ((this.ClientSize.Height - cGrip) < cGrip ? cGrip + 10 : this.ClientSize.Height - cGrip), cGrip, cGrip);
             ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
             rc = new Rectangle(0, 0, this.ClientSize.Width, cCaption);
             e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
